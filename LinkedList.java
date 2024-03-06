@@ -24,7 +24,6 @@ public class LinkedList {
         head = newNode;
     }
 
-
     public void insertLast(Node newNode) {
         if (isEmpty()) {
             head = newNode;
@@ -38,6 +37,18 @@ public class LinkedList {
         newNode.setNext(previous.getNext());
         previous.setNext(newNode);
     }
+    public Node getNodeWithKey(int expX, int expY, int expZ) {
+        Node current = head;
+        while (current != null) {
+            Term term = current.getTerm();
+            if (term.getExponentX() == expX && term.getExponentY() == expY && term.getExponentZ() == expZ) {
+                return current;
+            }
+            current = current.getNext();
+        }
+        return null;
+    }
+
     public String toString() {
         StringBuilder builder = new StringBuilder();
         Node current = head;

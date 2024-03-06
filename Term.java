@@ -15,24 +15,16 @@ public class Term {
         return coefficient;
     }
 
-    public void setExponentX(int exponentX) {
-        this.exponentX = exponentX;
+    public void setCoefficient(int coefficient) {
+        this.coefficient = coefficient;
     }
 
     public int getExponentX() {
         return exponentX;
     }
 
-    public void setExponentY(int exponentY) {
-        this.exponentY = exponentY;
-    }
-
     public int getExponentY() {
         return exponentY;
-    }
-
-    public void setExponentZ(int exponentZ) {
-        this.exponentZ = exponentZ;
     }
 
     public int getExponentZ() {
@@ -67,5 +59,15 @@ public class Term {
             }
         }
         return builder.toString();
+    }
+
+    public int compareTo(Term other) {
+        if (this.exponentX != other.exponentX) {
+            return Integer.compare(this.exponentX, other.exponentX);
+        } else if (this.exponentY != other.exponentY) {
+            return Integer.compare(this.exponentY, other.exponentY);
+        } else {
+            return Integer.compare(this.exponentZ, other.exponentZ);
+        }
     }
 }
